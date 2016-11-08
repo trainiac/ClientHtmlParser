@@ -1,7 +1,7 @@
 {
   "name": "clienthtmlparser",
   "description": "A client side script that request URL and collect information from the page",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/trainiac/ClientHtmlParser",
   "author": {
     "name": "Adrian William Adkiosn",
