@@ -18,4 +18,3 @@ pids
 node_modules
 
 # transpiled asset folder
-build/
