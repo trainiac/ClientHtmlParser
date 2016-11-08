@@ -20,10 +20,10 @@
     "build-server": "node_modules/.bin/babel -d ./build/server ./server -s",
     "clean": "rm -rf build && mkdir build",
     "develop": "node_modules/.bin/babel-node --debug server/app.dev.js",
+    "go": "node ./build/server/app.prod.js",
     "lint": "node_modules/.bin/eslint ./ --max-warnings 0",
     "lint-fix": "node_modules/.bin/eslint --fix ./",
     "start": "npm run build && npm run go",
-    "go": "node ./build/server/app.prod.js",
     "test": "node_modules/.bin/jest --config jest.config.json",
     "test-cov": "node_modules/.bin/jest --config jest.coverage.config.json"
   },
