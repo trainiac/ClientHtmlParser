@@ -16,8 +16,8 @@
   },
   "scripts": {
     "build": "npm run clean && npm run build-server && npm run build-client",
-    "build-client": "webpack --config webpack.prod.config.js",
-    "build-server": "babel -d ./build/server ./server -s",
+    "build-client": "node_modules/.bin/webpack --config webpack.prod.config.js",
+    "build-server": "node_modules/.bin/babel -d ./build/server ./server -s",
     "clean": "rm -rf build && mkdir build",
     "develop": "node_modules/.bin/babel-node --debug server/app.dev.js",
     "lint": "node_modules/.bin/eslint ./ --max-warnings 0",
