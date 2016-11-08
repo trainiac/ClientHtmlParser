@@ -3,7 +3,6 @@ import * as actions from '../../actions/constants'
 import images from './images'
 
 
-
 const initialState = {
   title: '',
   metaTags: [],

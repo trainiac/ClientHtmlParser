@@ -24,12 +24,11 @@ const imageCalculations = imageEl => {
   if (imageEl.height > imageEl.width) {
 
     squareness = round(imageEl.width / imageEl.height, thousandthPrecision)
-    console.log(imageEl.width, imageEl.height, size, squareness)
 
   } else if (imageEl.height < imageEl.width) {
 
     squareness = round(imageEl.height / imageEl.width, thousandthPrecision)
-    console.log(imageEl.height, imageEl.width, size, squareness)
+
   } else {
 
     squareness = 1
