@@ -6,11 +6,10 @@ import { girdle } from '../utils/index'
 
 const styles = girdle({
   linkParserContainer: {
-    width: '50%',
-    height: '50%',
-    margin: 'auto',
-    backgroundColor: '#ddd',
-    borderRadius: '5px'
+    width: '80%',
+    minWidth: 200,
+    minHeight: '50%',
+    margin: 'auto'
   }
 })
 
@@ -19,12 +18,8 @@ export default function UrlParserPage() {
 
   return (
     <div {...styles.linkParserContainer()}>
-      <div>
-        <UrlForm/>
-      </div>
-      <div>
-        <UrlMetaInfo/>
-      </div>
+      <UrlForm/>
+      <UrlMetaInfo/>
     </div>
   )
 

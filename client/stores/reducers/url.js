@@ -10,7 +10,7 @@ const initialState = {
   requestError: null
 }
 
-export const title = (state = initialState.title, action) => {
+const title = (state = initialState.title, action) => {
 
   switch (action.type) {
     case actions.REQUEST_URL_RECEIVED:
@@ -21,7 +21,7 @@ export const title = (state = initialState.title, action) => {
 
 }
 
-export const metaTags = (state = initialState.metaTags, action) => {
+const metaTags = (state = initialState.metaTags, action) => {
 
   switch (action.type) {
     case actions.REQUEST_URL_RECEIVED:
@@ -32,7 +32,7 @@ export const metaTags = (state = initialState.metaTags, action) => {
 
 }
 
-export const isRequesting = (state = initialState.isRequesting, action) => {
+const isRequesting = (state = initialState.isRequesting, action) => {
 
   switch (action.type) {
     case actions.REQUEST_URL_RECEIVED:

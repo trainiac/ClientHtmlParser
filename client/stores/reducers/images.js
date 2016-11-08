@@ -6,7 +6,7 @@ const initialState = {
   elements: []
 }
 
-export const elements = (state = initialState.elements, action) => {
+const elements = (state = initialState.elements, action) => {
 
   switch (action.type) {
     case actions.REQUEST_IMAGES_RECEIVED:

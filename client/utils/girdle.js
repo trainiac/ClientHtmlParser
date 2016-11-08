@@ -4,7 +4,7 @@
  */
 
 
-import { css, StyleSheet } from 'aphrodite'
+import { css, StyleSheet } from 'aphrodite/no-important'
 import _ from 'lodash/fp'
 
 const mapValues = _.mapValues.convert({ cap: false })
@@ -45,7 +45,20 @@ const wrapGetStateFunc = (context, className, getStateFunc) => (...args) => {
       stateClassNameToStyleSheetStyles(className, context)
   )(computedClassNames)
 
-  return { className: css(context.styleSheet[className], ...classNameStyleSheets) }
+  let stylesToApply = [
+    context.styleSheet[className],
+    ...classNameStyleSheets
+  ]
+
+  const helperStyleSheetStyles = context.helpers[className]
+
+  if (helperStyleSheetStyles) {
+
+    stylesToApply = [...helperStyleSheetStyles, ...stylesToApply]
+
+  }
+
+  return { className: css(...stylesToApply) }
 
 }
 
@@ -100,7 +113,7 @@ const getClassNameFunc = context => (classNameStyles, className) => {
 
   if (helperStyleSheetStyles) {
 
-    stylesToApply = [...stylesToApply, ...helperStyleSheetStyles]
+    stylesToApply = [...helperStyleSheetStyles, ...stylesToApply]
 
   }
 

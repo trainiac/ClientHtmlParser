@@ -63,5 +63,23 @@ export const girdle = girdleGlobals({
   },
   disabled: {
     opacity: 0.5
+  },
+  flatBtn: {
+    outline: 'none',
+    textAlign: 'center',
+    fontSize: '12px',
+    lineHeight: '16px',
+    fontWeight: 'normal',
+    padding: '4px 10px',
+    borderRadius: '3px',
+    backgroundClip: 'padding-box',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap',
+    textDecoration: 'none !important',
+    color: '#333333',
+    display: 'inline-block',
+    border: 'none',
+    position: 'relative',
+    textShadow: 'none'
   }
 })

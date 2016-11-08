@@ -53,8 +53,10 @@ const sortBestImages = _.flow(
   _.orderBy(imageSize, 'desc')
 )
 
-export const getBestImages = state =>
+export const getBest = state =>
   _.flow(
     sortBestImages,
     _.take(imageCountToReturn)
   )(state.url.images.elements)
+
+export const getIsRequesting = state => state.url.images.isRequesting

@@ -14,3 +14,5 @@ export const getDescription = state =>
 export const getTitle = state => state.url.title
 
 export const getIsRequesting = state => state.url.isRequesting
+
+export const getError = state =>  state.url.requestError
