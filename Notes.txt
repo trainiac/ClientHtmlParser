@@ -1,0 +1,85 @@
+Build a component that is a link form
+
+LinkForm
+  has container
+  input
+  button for requesting link
+
+LinkMetaInfo
+  Displays page title
+  Displays description
+  ImageSelector
+    Displays a list of images in form of a list and selector
+
+
+Actions
+  REQUEST_LINK_HTML
+  LINK_HTML_STARTING_REQUEST
+  LINK_HTML_RECEIVED_REQUEST
+  LINK_HTML_FAILED_REQUEST
+
+Reducers
+  urlMetadata: {
+     title: string
+     description: string
+     images: [<object>]
+     isRequesting: bool
+  }
+
+  /* eslint-disable max-len */
+
+import React, { PureComponent } from 'react'
+import $ from 'jquery'
+import _ from 'lodash/fp'
+
+export default class Root extends PureComponent {
+
+  constructor(props) {
+
+    super(props)
+    this.state = {
+      pageData: []
+    }
+
+    const urls = [
+      'http://www.landsend.com/products/womens-ponte-sheath-dress/id_302546?sku_0=::2HK&cm_mmc=CJ-_-Lands_End_Home_Generic_DeepLink-_-2470763_6161322-_-VigLink&CJSID=itg23ijw8k002341012zt&AID=11141276&PID=6161322',
+      'http://www.target.com/p/threshold-wood-medicine-cabinet/-/A-50373676',
+      'https://www.amazon.com/Waiting-Guffman-Lewis-Arquette/dp/B00OIKJIHE/ref=sr_1_2?ie=UTF8&qid=1474654217&sr=8-2&keywords=waiting+for+guffman',
+      'http://www.zappos.com/timberland-atlantic-heights-covered-gore-chelsea-boot-dark-brown-full-grain?pf_rd_r=1V2ZHNAG0PANS6QZ3WVP&pf_rd_p=14e9f804-8825-4daf-8250-c5b175dbd1c7',
+      'http://shop.nordstrom.com/s/dress-the-population-gwen-knit-midi-dress/4252752?origin=category-personalizedsort&fashioncolor=BLACK'
+    ]
+
+    _.each(url => {
+      const select = `select * from html where url="${url}"`
+      const xpath = 'xpath="//html//head//title|//html//head//meta|//html//body//img"'
+      const query = encodeURIComponent(
+        `${select} and ${xpath} and compat="html5"`
+      )
+      const yql = `http://query.yahooapis.com/v1/public/yql?q=${query}&format=json&callback=?`
+
+      $.getJSON(yql, domJson => {
+
+        this.setState(
+            prevState => ({ pageData: [...prevState.pageData, domJson] })
+          )
+
+      })
+
+    })(urls)
+
+  }
+
+  render() {
+
+    const indentationSpaces = 4
+
+
+    return (
+      <pre>
+        {JSON.stringify(this.state.pageData, null, indentationSpaces)}
+      </pre>
+    )
+
+  }
+
+}
