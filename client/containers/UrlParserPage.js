@@ -9,7 +9,7 @@ const styles = girdle({
     width: '80%',
     minWidth: 200,
     minHeight: '50%',
-    margin: 'auto'
+    margin: '50px auto'
   }
 })
 

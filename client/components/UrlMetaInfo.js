@@ -13,11 +13,18 @@ const styles = girdle({
   }
 })
 
+let hasLoaded = false
+
 function UrlMetaInfo(props) {
 
   let content
 
-  if (
+  if (!hasLoaded) {
+
+    hasLoaded = true
+    content = null
+
+  } else if (
     props.isRequestingUrl ||
     props.isRequestingImages
   ) {
@@ -36,13 +43,13 @@ function UrlMetaInfo(props) {
 
   } else {
 
-    content = (
-      <div>
+    content =
+      (<div>
         <ImageSlideShow/>
         <h3>{props.title || 'Title'}</h3>
         <p>{props.description || 'Description'}</p>
-      </div>
-    )
+      </div>)
+
 
   }
 

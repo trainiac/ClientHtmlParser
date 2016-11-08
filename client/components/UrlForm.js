@@ -16,10 +16,10 @@ const styles = girdle({
     padding: '1em'
   },
   urlInputWrapper: {
-    display: 'flex',
-    marginBottom: '1em'
+    display: 'flex'
   },
   validation: {
+    marginTop: '1em',
     color: 'tomato',
     fontSize: '1em',
     fontWeight: 'bold'
