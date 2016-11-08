@@ -27,7 +27,7 @@ const getYql = url => {
   )
 
 
-  return `http://query.yahooapis.com/v1/public/yql?q=${query}&format=json`
+  return `https://query.yahooapis.com/v1/public/yql?q=${query}&format=json`
 
 }
 
